@@ -45,7 +45,6 @@ class NotesFragment : Fragment()   {
         fun yesPressed(noteId : Long) {
             Log.d(TAG, "in yesPressed(): noteId = $noteId")
             binding.viewModel?.deleteNote(noteId)
-            //TODO: delete the note with id = noteId
         }
         fun deleteClicked (noteId : Long) {
              ConfirmDeleteDialogFragment(noteId,::yesPressed).show(childFragmentManager,

@@ -24,15 +24,15 @@ class NotesViewModel(val dao: NoteDao) : ViewModel() {
     }
 
     fun deleteNote(noteId: Long) {
-        viewModelScope.launch {
-            dao.get(noteId).observeForever{ it ->
-                it?.let{
+        dao.get(noteId).observeForever{ it ->
+            it?.let{
+                viewModelScope.launch {
                     Log.d("In the view model", "Trying to delete" + it.noteId)
-
+                    dao.delete(it)
                 }
-                dao.delete(it)
             }
         }
+
     }
 
     fun onNoteClicked(noteId: Long) {
