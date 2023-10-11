@@ -2,11 +2,11 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".EditTaskFragment">
+    tools:context=".EditNoteFragment">
     <data>
         <variable
             name="viewModel"
-            type="com.example.project6new.EditTaskViewModel" />
+            type="com.example.project6new.EditNoteViewModel" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,39 +14,39 @@
         android:orientation="vertical"
         android:padding="16dp">
         <EditText
-            android:id="@+id/task_name"
+            android:id="@+id/note_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:inputType="text"
-            android:text="@={viewModel.task.taskName}" />
+            android:text="@={viewModel.note.noteName}" />
 
         <EditText
-            android:id="@+id/task_description"
+            android:id="@+id/note_description"
             android:layout_width="match_parent"
             android:layout_height="600dp"
             android:textSize="16sp"
             android:inputType="text"
-            android:text="@={viewModel.task.taskDescription}" />
+            android:text="@={viewModel.note.noteDescription}" />
 <!--        <CheckBox-->
-<!--            android:id="@+id/task_done"-->
+<!--            android:id="@+id/note_done"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->
 <!--            android:textSize="16sp"-->
-<!--            android:checked="@={viewModel.task.taskDone}" />-->
+<!--            android:checked="@={viewModel.note.noteDone}" />-->
         <Button
             android:id="@+id/update_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:text="SAVE"
-            android:onClick="@{() -> viewModel.updateTask()}" />
+            android:onClick="@{() -> viewModel.updateNote()}" />
 <!--        <Button-->
 <!--            android:id="@+id/delete_button"-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
 <!--            android:layout_gravity="center"-->
-<!--            android:text="Delete Task"-->
-<!--            android:onClick="@{() -> viewModel.deleteTask()}" /> TODO move to X button-->
+<!--            android:text="Delete Note"-->
+<!--            android:onClick="@{() -> viewModel.deleteNote()}" /> TODO move to X button-->
     </LinearLayout>
 </layout>

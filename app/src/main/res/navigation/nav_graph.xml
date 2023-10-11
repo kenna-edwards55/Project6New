@@ -3,28 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/tasksFragment">
+    app:startDestination="@id/notesFragment">
     <fragment
-        android:id="@+id/tasksFragment"
-        android:name="com.example.project6new.TasksFragment"
-        android:label="fragment_tasks"
-        tools:layout="@layout/fragment_tasks" >
+        android:id="@+id/notesFragment"
+        android:name="com.example.project6new.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" >
         <action
-            android:id="@+id/action_tasksFragment_to_editTaskFragment"
-            app:destination="@id/editTaskFragment" />
+            android:id="@+id/action_notesFragment_to_editNoteFragment"
+            app:destination="@id/editNoteFragment" />
     </fragment>
     <fragment
-        android:id="@+id/editTaskFragment"
-        android:name="com.example.project6new.EditTaskFragment"
-        android:label="fragment_edit_task"
-        tools:layout="@layout/fragment_edit_task" >
+        android:id="@+id/editNoteFragment"
+        android:name="com.example.project6new.EditNoteFragment"
+        android:label="fragment_edit_note"
+        tools:layout="@layout/fragment_edit_note" >
         <argument
-            android:name="taskId"
+            android:name="noteId"
             app:argType="long" />
         <action
-            android:id="@+id/action_editTaskFragment_to_tasksFragment"
-            app:destination="@id/tasksFragment"
-            app:popUpTo="@id/tasksFragment"
+            android:id="@+id/action_editNoteFragment_to_notesFragment"
+            app:destination="@id/notesFragment"
+            app:popUpTo="@id/notesFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

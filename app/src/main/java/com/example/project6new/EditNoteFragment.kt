@@ -8,36 +8,36 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import com.example.project6new.databinding.FragmentEditTaskBinding
+import com.example.project6new.databinding.FragmentEditNoteBinding
 
 
 /**
  * A simple [Fragment] subclass.
- * Use the [EditTaskFragment.newInstance] factory method to
+ * Use the [EditNoteFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class EditTaskFragment : Fragment() {
-    private var _binding: FragmentEditTaskBinding? = null
+class EditNoteFragment : Fragment() {
+    private var _binding: FragmentEditNoteBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        _binding = FragmentEditTaskBinding.inflate(inflater, container, false)
+        _binding = FragmentEditNoteBinding.inflate(inflater, container, false)
         val view = binding.root
-        val taskId = EditTaskFragmentArgs.fromBundle(requireArguments()).taskId
+        val noteId = EditNoteFragmentArgs.fromBundle(requireArguments()).noteId
 
         val application = requireNotNull(this.activity).application
-        val dao = TaskDatabase.getInstance(application).taskDao
+        val dao = NoteDatabase.getInstance(application).noteDao
 
-        val viewModelFactory = EditTaskViewModelFactory(taskId, dao)
+        val viewModelFactory = EditNoteViewModelFactory(noteId, dao)
         val viewModel = ViewModelProvider(this, viewModelFactory)
-            .get(EditTaskViewModel::class.java)
+            .get(EditNoteViewModel::class.java)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         viewModel.navigateToList.observe(viewLifecycleOwner, Observer { navigate ->
             if (navigate) {
                 view.findNavController()
-                    .navigate(R.id.action_editTaskFragment_to_tasksFragment)
+                    .navigate(R.id.action_editNoteFragment_to_notesFragment)
                 viewModel.onNavigatedToList()
             }
         })

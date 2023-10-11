@@ -3,27 +3,27 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".TasksFragment">
+    tools:context=".NotesFragment">
     <data>
         <variable
             name="viewModel"
-            type="com.example.project6new.TasksViewModel" />
+            type="com.example.project6new.NotesViewModel" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
         <EditText
-            android:id="@+id/task_name"
+            android:id="@+id/note_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Enter a task name"
-            android:text="@={viewModel.newTaskName}" />
+            android:hint="Enter a note name"
+            android:text="@={viewModel.newNoteName}" />
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/tasks_list"
+            android:id="@+id/notes_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="ADD NOTE"
-            android:onClick="@{() -> viewModel.addTask()}" />
+            android:onClick="@{() -> viewModel.addNote()}" />
 
     </LinearLayout>
 </layout>
