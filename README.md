@@ -1,7 +1,7 @@
 # Project 6 Notes App
 
 Description of the project ...
-* Quiz application that tests user's knowledge of math problems.
+* Notes application where users can add, delete, and edit a list of notes.
 
 ## Functionality 
 
