@@ -1,5 +1,6 @@
 package com.example.project6new
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,9 +22,23 @@ class NotesViewModel(val dao: NoteDao) : ViewModel() {
             dao.insert(note)
         }
     }
+
+    fun deleteNote(noteId: Long) {
+        viewModelScope.launch {
+            dao.get(noteId).observeForever{ it ->
+                it?.let{
+                    Log.d("In the view model", "Trying to delete" + it.noteId)
+
+                }
+                dao.delete(it)
+            }
+        }
+    }
+
     fun onNoteClicked(noteId: Long) {
         _navigateToNote.value = noteId
     }
+
     fun onNoteNavigated() {
         _navigateToNote.value = null
     }

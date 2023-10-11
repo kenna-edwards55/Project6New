@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:inputType="text"
+            android:hint="Enter a note name"
             android:text="@={viewModel.note.noteName}" />
 
         <EditText
@@ -27,6 +28,7 @@
             android:layout_height="600dp"
             android:textSize="16sp"
             android:inputType="text"
+            android:hint= "Description"
             android:text="@={viewModel.note.noteDescription}" />
 <!--        <CheckBox-->
 <!--            android:id="@+id/note_done"-->
