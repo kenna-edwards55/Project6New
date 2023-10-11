@@ -10,6 +10,8 @@ data class Task(
     var taskId: Long = 0L,
     @ColumnInfo(name = "task_name")
     var taskName: String = "",
+    @ColumnInfo(name = "task_description")
+    var taskDescription: String = "",
     @ColumnInfo(name = "task_done")
-    var taskDone: Boolean = false
+    var taskDone: Boolean = false //not using
 )

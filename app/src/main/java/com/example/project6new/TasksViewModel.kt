@@ -8,6 +8,7 @@ import kotlinx.coroutines.launch
 
 class TasksViewModel(val dao: TaskDao) : ViewModel() {
     var newTaskName = ""
+    var newTaskDescription= ""
     val tasks = dao.getAll()
     private val _navigateToTask = MutableLiveData<Long?>()
     val navigateToTask: LiveData<Long?>
@@ -16,6 +17,7 @@ class TasksViewModel(val dao: TaskDao) : ViewModel() {
         viewModelScope.launch {
             val task = Task()
             task.taskName = newTaskName
+            task.taskDescription= newTaskDescription
             dao.insert(task)
         }
     }
