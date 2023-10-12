@@ -11,10 +11,6 @@ class ConfirmDeleteDialogFragment(val noteId : Long,val clickListener: (noteId: 
     val TAG = "ConfirmDeleteDialogFragment"
 
     interface myClickListener {
-//        fun yesPressed() {
-//
-//            Log.d("Confirm", "Yes pressed in dialog button")
-//        }
     }
 
     var listener: myClickListener? = null

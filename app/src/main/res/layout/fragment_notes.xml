@@ -13,13 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-<!--        <EditText-->
-<!--            android:id="@+id/note_name"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:inputType="text"-->
-<!--            android:hint="Enter a note name"-->
-<!--            android:text="@={viewModel.newNoteName}" />-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/notes_list"

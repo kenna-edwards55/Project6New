@@ -40,8 +40,11 @@ class NotesFragment : Fragment()   {
         }*/
 
         fun noteClicked (noteId : Long) {
+            Log.d(TAG, "in noteClicked() : noteId = $noteId")
             viewModel.onNoteClicked(noteId)
         }
+
+
         fun yesPressed(noteId : Long) {
             Log.d(TAG, "in yesPressed(): noteId = $noteId")
             binding.viewModel?.deleteNote(noteId)
@@ -51,7 +54,6 @@ class NotesFragment : Fragment()   {
                  ConfirmDeleteDialogFragment.TAG)
         }
         val adapter = NoteItemAdapter(::noteClicked,::deleteClicked)
-
 
         binding.notesList.adapter = adapter
 

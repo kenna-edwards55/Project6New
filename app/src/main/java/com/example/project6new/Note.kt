@@ -13,5 +13,5 @@ data class Note(
     @ColumnInfo(name = "note_description")
     var noteDescription: String = "",
     @ColumnInfo(name = "note_done")
-    var noteDone: Boolean = false //not using TODO delete
+    var noteDone: Boolean = false //not using
 )

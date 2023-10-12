@@ -1,5 +1,6 @@
 package com.example.project6new
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,17 +14,17 @@ class EditNoteViewModel(noteId: Long, val dao: NoteDao) : ViewModel() {
         get() = _navigateToList
     fun updateNote() {
         viewModelScope.launch {
+            Log.d("Edit note", note.value!!.noteName)
             dao.update(note.value!!)
             _navigateToList.value = true
         }
     }
-    fun deleteNote() {
-        viewModelScope.launch {
-            dao.delete(note.value!!)
-            _navigateToList.value = true
-        }
-    }
+
+
+
     fun onNavigatedToList() {
         _navigateToList.value = false
     }
 }
+
+

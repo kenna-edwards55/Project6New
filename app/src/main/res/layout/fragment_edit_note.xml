@@ -30,12 +30,7 @@
             android:inputType="text"
             android:hint= "Description"
             android:text="@={viewModel.note.noteDescription}" />
-<!--        <CheckBox-->
-<!--            android:id="@+id/note_done"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="16sp"-->
-<!--            android:checked="@={viewModel.note.noteDone}" />-->
+
         <Button
             android:id="@+id/update_button"
             android:layout_width="match_parent"
@@ -43,12 +38,6 @@
             android:layout_gravity="bottom"
             android:text="SAVE"
             android:onClick="@{() -> viewModel.updateNote()}" />
-<!--        <Button-->
-<!--            android:id="@+id/delete_button"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:text="Delete Note"-->
-<!--            android:onClick="@{() -> viewModel.deleteNote()}" /> TODO move to X button-->
+
     </LinearLayout>
 </layout>

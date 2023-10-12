@@ -10,7 +10,7 @@ import androidx.room.Update
 @Dao
 interface NoteDao {
     @Insert
-    suspend fun insert(note: Note)
+    suspend fun insert(note: Note) :Long
     @Update
     suspend fun update(note: Note)
     @Delete

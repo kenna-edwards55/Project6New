@@ -25,15 +25,7 @@
                 android:textSize="16sp"
                 android:padding="8dp"
                 android:text="@{note.noteName}" />
-<!--            <CheckBox-->
-<!--                android:id="@+id/note_done"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textSize="16sp"-->
-<!--                android:padding="8dp"-->
-<!--                android:clickable="false"-->
-<!--                android:text="Done?"-->
-<!--                android:checked="@{note.noteDone}" />-->
+
             <ImageButton
                 android:id="@+id/delete_button"
                 android:layout_width="wrap_content"
