@@ -17,6 +17,7 @@ import com.example.project6new.databinding.FragmentEditNoteBinding
  * create an instance of this fragment.
  */
 class EditNoteFragment : Fragment() {
+    val TAG = "EditNoteFragment"
     private var _binding: FragmentEditNoteBinding? = null
     private val binding get() = _binding!!
 

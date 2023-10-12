@@ -8,7 +8,6 @@ import android.util.Log
 import androidx.fragment.app.DialogFragment
 
 class ConfirmDeleteDialogFragment(val noteId : Long,val clickListener: (noteId: Long) -> Unit) : DialogFragment() {
-    val TAG = "ConfirmDeleteDialogFragment"
 
     interface myClickListener {
     }
@@ -34,8 +33,4 @@ class ConfirmDeleteDialogFragment(val noteId : Long,val clickListener: (noteId: 
             Log.d(TAG, e.message.toString())
         }
     }
-
-
-
-
 }

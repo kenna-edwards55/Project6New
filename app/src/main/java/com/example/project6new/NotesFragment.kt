@@ -34,10 +34,6 @@ class NotesFragment : Fragment()   {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-       /* val adapter = NoteItemAdapter{ noteId ->
-            viewModel.onNoteClicked(noteId)
-
-        }*/
 
         fun noteClicked (noteId : Long) {
             Log.d(TAG, "in noteClicked() : noteId = $noteId")

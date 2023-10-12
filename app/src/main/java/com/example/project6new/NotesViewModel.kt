@@ -5,12 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class NotesViewModel(val dao: NoteDao) : ViewModel() {
+    val TAG = "NotesViewModel"
     val notes = dao.getAll()
     private val _navigateToNote = MutableLiveData<Long?>()
     val navigateToNote: LiveData<Long?>
@@ -24,7 +22,6 @@ class NotesViewModel(val dao: NoteDao) : ViewModel() {
             val insertNum = dao.insert(note)
 
             onNoteClicked(insertNum)
-
         }
     }
 

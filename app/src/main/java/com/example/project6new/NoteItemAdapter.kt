@@ -9,6 +9,7 @@ import com.example.project6new.databinding.NoteItemBinding
 class NoteItemAdapter(val clickListener: (noteId: Long) -> Unit,
                       val deleteClickListener: (noteId: Long) -> Unit)
     : ListAdapter<Note, NoteItemAdapter.NoteItemViewHolder>(NoteDiffItemCallback()) {
+    val TAG = "NoteItemAdapter"
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
             : NoteItemViewHolder = NoteItemViewHolder.inflateFrom(parent)
     override fun onBindViewHolder(holder: NoteItemViewHolder, position: Int) {
