@@ -1,27 +1,49 @@
 # Project 6 Notes App
 
 Description of the project ...
-* Notes application where users can add, delete, and edit a list of notes.
+* Notes application that allows users to create, edit, and manage notes. 
 
 ## Functionality 
 
 The following **required** functionality is completed:
 
-* [ ] User sees the WelcomeFragment first and can choose the following:
-* [ ]     Difficulty: easy, medium, and hard
-* [ ]     Operation: addition, subtraction, multiplication, and division
-* [ ]     Number of Questions: Greater than or equal to 1
-* [ ] User presses "start" button, and app navigates to the QuestionFragment
-* [ ] The user answers the number of questions they chose from the operator and difficulty.
-* [ ] When finished with each question, press done.
-* [ ] Once the amount of questions requested has been answered, the app navigates to the CorrectAnswersFragment
-* [ ] The user sees how many questions out of the total they got correct.
-* [ ] If desired, they can go back to the beginning of the app and quiz again, by pressing the "Do it again" button
+* [ ] **List of Notes**: Upon opening the app, the user is presented with a list of existing notes (if they have them.) Each note is displayed with its title.
+* [ ] **Creating a New Note**: User can tap the "Add Note" button, which will navigate to the EditNoteFragment. Here, the user can add/change the name and description of the note.
+* [ ] **Editing an Existing Note**: User can press the name of the note. This will navigate to EditNoteFragment.
+* [ ] **Deleting a Note**: User can press the red X button. A confirmation dialog will appear and ask whether to delete the note with a Yes/No.
+* [ ] **Database** All notes are stored in a local SQLite database and the Room Persistence Library is used for managing database operations.
+* [ ] **ViewModel and LiveData** Used to separate the UI-related data and business logic. 
 
 The following **extensions** are implemented:
+* androidx.fragment.app.DialogFragment
 * androidx.fragment.app.Fragment
+* androidx.lifecycle.Observer
+* androidx.lifecycle.ViewModelProvider
 * androidx.navigation.findNavController
+* androidx.lifecycle.LiveData
+* androidx.lifecycle.MutableLiveData
+* androidx.lifecycle.ViewModel
+* androidx.lifecycle.viewModelScope
 * androidx.appcompat.app.AppCompatActivity
+* androidx.room.ColumnInfo
+* androidx.room.Entity
+* androidx.room.PrimaryKey
+* androidx.room.Dao
+* androidx.room.Delete
+* androidx.room.Insert
+* androidx.room.Query
+* androidx.room.Update
+* androidx.room.Database
+* androidx.room.Room
+* androidx.room.RoomDatabase
+* androidx.recyclerview.widget.DiffUtil
+* androidx.recyclerview.widget.ListAdapter
+* androidx.recyclerview.widget.RecyclerView
+* androidx.lifecycle.LiveData
+* androidx.lifecycle.MutableLiveData
+* androidx.lifecycle.ViewModel
+* androidx.lifecycle.viewModelScope
+* kotlinx.coroutines.launch
 
 ## Video Walkthrough
 
@@ -34,19 +56,15 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
-* A major challenge I faced was the plugins.  I did not correctly implement all of the plugins, which led to several hours of debugging the issue.
-* Another challenge was passing arguments between screens.  It was difficult to ensure the nav_graph.xml was correctly implemented.
-
-Functionality Note
-* For division, the user's answer is equal to the Integer. AKA if the question is 9/8, the answer is 1.
+* A major challenge I faced was navigating directly to the EditNoteFragment.  Reason being, when a Note was created, it is given an ID of 0. However, when it is added to the database, the ID changes.  Therefore, I added a return to the insert method in NoteDao.kt, which will return the ID that the Note was assigned.
 
 Logic
-* The user chooses their difficulty level, which defines what operands will be displayed in the questions.
-* "easy" = 1 <= operand < 10
-* "medium" = 1 <= operand < 25
-* "hard" = 1 <= operand < 50
-
-* When the user submits an answer, the solve() function evaluates and returns the correct answer to the math problem.  An if statement in the "done" button evaluates whether the correct answer matches the users input.  If yes, the number of correct answers increases by 1.  For more details, see kDocs within QuestionFragment.kt
+* Room Database: Room is used to manage the SQLite database. This includes defining a NoteDao for CRUD (Create, Read, Update, Delete) operations and a NoteDatabase for managing the database instance.
+* LiveData: LiveData is utilized for observing and updating changes in the list of notes and navigation states. It ensures a responsive and dynamic user interface.
+* ViewModels: Two primary ViewModel classes:
+*     NotesViewModel: This ViewModel manages the main notes screen, handling note creation, editing, deletion, and navigation. It observes changes in the list of notes and facilitates navigation to edit notes.
+*     EditNoteViewModel: Responsible for managing the editing of individual notes. It ensures changes are saved and navigates back to the notes list.
+* Navigation: Utilizes the Navigation Component to facilitate smooth transitions between the notes list, note editing, and the confirmation dialog for deleting notes.
 
 ## License
 
