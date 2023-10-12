@@ -12,17 +12,27 @@ import com.example.project6new.databinding.FragmentEditNoteBinding
 
 
 /**
- * A simple [Fragment] subclass.
- * Use the [EditNoteFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Fragment for editing a Note
  */
 class EditNoteFragment : Fragment() {
-    val TAG = "EditNoteFragment"
+
+    /**
+     * [_binding]: Binder for EditNoteFragment
+     */
     private var _binding: FragmentEditNoteBinding? = null
     private val binding get() = _binding!!
 
+    /**
+     * Called to create and return the view hierarchy associated with this fragment.
+     *
+     * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment.
+     * @param container If non-null, this is the parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     * @return [View] The created view.
+     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
         _binding = FragmentEditNoteBinding.inflate(inflater, container, false)
         val view = binding.root
         val noteId = EditNoteFragmentArgs.fromBundle(requireArguments()).noteId
@@ -44,7 +54,11 @@ class EditNoteFragment : Fragment() {
         })
         return view
     }
+    /**
+     * Called when the view previously created by onCreateView has been detached from the fragment.
+     */
     override fun onDestroyView() {
+
         super.onDestroyView()
         _binding = null
     }
