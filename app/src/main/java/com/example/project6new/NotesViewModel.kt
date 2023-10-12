@@ -37,6 +37,7 @@ class NotesViewModel(val dao: NoteDao) : ViewModel() {
      */
      fun addNote() {
         viewModelScope.launch {
+            Log.d(TAG, "Adding a note")
             val note = Note()
             note.noteName = ""
             note.noteDescription = ""
@@ -53,6 +54,7 @@ class NotesViewModel(val dao: NoteDao) : ViewModel() {
      * @param noteId The unique identifier of the note to be deleted.
      */
     fun deleteNote(noteId: Long) {
+        Log.d(TAG, "Deleting note with ID: $noteId")
         dao.get(noteId).observeForever{ it ->
             it?.let{
                 viewModelScope.launch {
@@ -68,6 +70,7 @@ class NotesViewModel(val dao: NoteDao) : ViewModel() {
      * @param noteId The unique identifier of the clicked note.
      */
     fun onNoteClicked(noteId: Long) {
+        Log.d(TAG, "Note clicked with ID: $noteId")
         _navigateToNote.value = noteId
     }
 
