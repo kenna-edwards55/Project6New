@@ -7,6 +7,7 @@ Description of the project ...
 
 The following **required** functionality is completed:
 
+* [ ] **Welcome Screen: When opening the app, the user can see two choices, the game or viewing previous high scores.
 * [ ] **List of Notes**: Upon opening the app, the user is presented with a list of existing notes (if they have them.) Each note is displayed with its title.
 * [ ] **Creating a New Note**: User can tap the "Add Note" button, which will navigate to the EditNoteFragment. Here, the user can add/change the name and description of the note.
 * [ ] **Editing an Existing Note**: User can press the name of the note. This will navigate to EditNoteFragment.
